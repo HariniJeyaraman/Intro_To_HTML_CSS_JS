@@ -1,0 +1,14 @@
+// blue devil on a green background
+//In this example we want to change only the background of the Duke logo. 
+//We will turn the background green and leave the rest of the logo unchanged. 
+//Since only the background pixels have a blue value of 255, we can use this condition in an if statement to identify the pixels
+//that should change to green.
+var image = new SimpleImage("duke_blue_devil.png");
+for (var pixel of image.values()) {
+    if (pixel.getBlue() == 255) {
+        pixel.setRed(0);
+        pixel.setGreen(255);
+        pixel.setBlue(100);
+    }
+}
+print(image);

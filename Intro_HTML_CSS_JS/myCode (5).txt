@@ -1,0 +1,20 @@
+// write your code here
+//Green Screen Algorithm
+var fg = new SimpleImage("drewRobert.png");
+var bg = new SimpleImage("dinos.png");
+var output = new SimpleImage(fg.getWidth(), fg.getHeight());
+for(var pixel of fg.values())
+{
+    if(pixel.getGreen()>pixel.getRed()+pixel.getBlue())
+    {
+        var x = pixel.getX();
+        var y = pixel.getY();
+        var pixelval = bg.getPixel(x,y);
+        output.setPixel(x,y,pixelval);
+    }
+    else
+    {
+        output.setPixel(pixel.getX(),pixel.getY(),pixel);
+    }
+}
+print(output);
